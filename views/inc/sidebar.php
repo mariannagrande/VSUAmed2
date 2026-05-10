@@ -50,7 +50,7 @@
                   <p>Students</p>
                   <span class="caret"></span>
                 </a>
-                <div class="collapse" id="base" style="">
+                <div class="collapse" id="base">
                   <ul class="nav nav-collapse">
 
                     <li>
