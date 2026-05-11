@@ -22,17 +22,32 @@
         <!---------------------------------Content------------------------------------->
 
         <div class="container">
-          <div class="page-inner">
+          <div class="page-inner p-5">
             
 
 
 
             <!----------------------------Edit Here------------------------------------>
 
-            <div class="row">
-              <div class="col-md-8"></div>
-              <div class="col-md-4"></div>
-            </div>
+            
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="card">
+                    <div class="card-header">
+                      this part the display will switch depending on the page name
+                      if page is addProgram then display the add program card, but if not then display the sections, yr, and students
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-header">
+                      if the page is for addingProgram then the page will display this card. if not, no display
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
 
             <!--------------------------End Edit Here---------------------------------->
       
