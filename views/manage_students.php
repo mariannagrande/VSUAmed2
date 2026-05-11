@@ -31,10 +31,25 @@
               if ($_GET['page'] == "SearchStudent"): ?>
 
                 <div class="row m-5">
-                  <div class="col-md-6">
-                    <div class="card">
-
-                    jjjj
+                  <div class="col-md-12">
+                    <div class="card p-5">
+                      <div class="card-body">
+                        <div class="form-group">
+                          <div class="input-icon">
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Search Student..."
+                            />
+                            <span class="input-icon-addon">
+                              <i class="fa fa-search"></i>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body p-5">
+                        pppp
+                      </div>
                     </div>
                   </div>
                 </div>

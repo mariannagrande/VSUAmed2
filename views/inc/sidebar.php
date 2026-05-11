@@ -37,11 +37,31 @@
                 </a>
               </li>
 
-              <li class="nav-item">
-                <a href="medicalrecord.php">
+              <li class="nav-item submenu">
+                <a data-bs-toggle="collapse" href="#base" class="collapsed" aria-expanded="false">
                   <i class="fas fa-layer-group"></i>
-                  <p>Medical Record</p>
+                  <p>Medical Records</p>
+                  <span class="caret"></span>
                 </a>
+                <div class="collapse" id="base">
+                  <ul class="nav nav-collapse">
+
+                    <li>
+                      <a href="medicalrecord.php?page=">
+                        <span class="sub-item">Programs</span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="medicalrecord.php?page=addProgram">
+                        <span class="sub-item">Add Program</span>
+                      </a>
+                    </li>
+
+
+
+                  </ul>
+                </div>
               </li>
 
               <li class="nav-item submenu">
