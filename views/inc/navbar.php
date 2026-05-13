@@ -301,14 +301,14 @@
                   >
                     <div class="avatar-sm">
                       <img
-                        src="assets/img/profile.jpg"
+                        src="../assets/img/profile.jpg"
                         alt="..."
                         class="avatar-img rounded-circle"
                       />
                     </div>
                     <span class="profile-username">
                       <span class="op-7">Hi,</span>
-                      <span class="fw-bold">Hizrian</span>
+                      <span class="fw-bold"><?=  !empty($_SESSION['name']) ? $_SESSION['name'] : '' ; ?></span>
                     </span>
                   </a>
                   <ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -317,13 +317,13 @@
                         <div class="user-box">
                           <div class="avatar-lg">
                             <img
-                              src="assets/img/profile.jpg"
+                              src="../assets/img/profile.jpg"
                               alt="image profile"
                               class="avatar-img rounded"
                             />
                           </div>
                           <div class="u-text">
-                            <h4>Hizrian</h4>
+                            <h4><?=  !empty($_SESSION['name']) ? $_SESSION['name'] : '' ; ?></h4>
                             <p class="text-muted">hello@example.com</p>
                             <a
                               href="profile.html"
@@ -341,7 +341,7 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Account Setting</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="../pages/logout.php">Logout</a>
                       </li>
                     </div>
                   </ul>

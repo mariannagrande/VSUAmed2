@@ -30,20 +30,20 @@
 
               <!---------------------- Sidebar ----------------------->
               
-              <li class="nav-item">
+              <li class="nav-item"> <!-- Dashboard Button -->
                 <a href="dashboard.php">
                   <i class="fas fa-layer-group"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
 
-              <li class="nav-item submenu">
-                <a data-bs-toggle="collapse" href="#base" class="collapsed" aria-expanded="false">
+              <li class="nav-item submenu"> <!-- Medical Record Collapse Button -->
+                <a data-bs-toggle="collapse" href="#medRec" class="collapsed" aria-expanded="false">
                   <i class="fas fa-layer-group"></i>
                   <p>Medical Records</p>
                   <span class="caret"></span>
                 </a>
-                <div class="collapse" id="base">
+                <div class="collapse" id="medRec">
                   <ul class="nav nav-collapse">
 
                     <li>
@@ -64,13 +64,13 @@
                 </div>
               </li>
 
-              <li class="nav-item submenu">
-                <a data-bs-toggle="collapse" href="#base" class="collapsed" aria-expanded="false">
+              <li class="nav-item submenu"> <!-- Student Collapse Button -->
+                <a data-bs-toggle="collapse" href="#Students" class="collapsed" aria-expanded="false">
                   <i class="fas fa-layer-group"></i>
                   <p>Students</p>
                   <span class="caret"></span>
                 </a>
-                <div class="collapse" id="base">
+                <div class="collapse" id="Students">
                   <ul class="nav nav-collapse">
 
                     <li>

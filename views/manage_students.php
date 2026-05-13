@@ -83,13 +83,14 @@
 
                             <div class="col-md-4">
                               <div class="form-group">
-                                <label for="lname">Sex: </label>
-                                <input
-                                  id="lname"
-                                  class="form-control"
-                                  placeholder="Male"
-                                  required
-                                />
+                                <label for="defaultSelect">Sex: </label>
+                                <select
+                                  class="form-select form-control"
+                                  id="sex"
+                                  >
+                                  <option value="Female">FEMALE</option>
+                                  <option value="Male">MALE</option>
+                                </select>
                               </div>
                             </div>
 
