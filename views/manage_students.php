@@ -75,6 +75,7 @@
                                 <input
                                   id="sn"
                                   class="form-control"
+                                  name="num"
                                   placeholder="2024-01"
                                   required
                                 />
@@ -87,6 +88,7 @@
                                 <select
                                   class="form-select form-control"
                                   id="sex"
+                                  name="sex"
                                   >
                                   <option value="Female">FEMALE</option>
                                   <option value="Male">MALE</option>
@@ -103,6 +105,7 @@
                                 <label for="lname">Student Last Name: </label>
                                 <input
                                   id="lname"
+                                  name="lname"
                                   class="form-control"
                                   placeholder="Cruz"
                                   required
@@ -114,7 +117,8 @@
                               <div class="form-group">
                                 <label for="lname">Student First Name: </label>
                                 <input
-                                  id="lname"
+                                  id="fname"
+                                  name="fname"
                                   class="form-control"
                                   placeholder="John Doe"
                                   required
@@ -130,7 +134,8 @@
                               <div class="form-group">
                                 <label for="lname">Student Middle Name: </label>
                                 <input
-                                  id="lname"
+                                  id="mname"
+                                  name="mname"
                                   class="form-control"
                                   placeholder="Mendoza"
                                 />
@@ -142,7 +147,8 @@
                               <div class="form-group">
                                 <label for="lname">Birthday: </label>
                                 <input
-                                  id="lname"
+                                  id="bday"
+                                  name="bday"
                                   class="form-control"
                                   type="date"
                                   required
@@ -154,7 +160,8 @@
                               <div class="form-group">
                                 <label for="lname">Email: </label>
                                 <input
-                                  id="lname"
+                                  id="email"
+                                  name="email"
                                   class="form-control"
                                   placeholder="johndoe@gmail.com"
                                   required
@@ -166,7 +173,8 @@
                           <div class="form-group">
                             <label for="lname">Contact Number: </label>
                             <input
-                              id="lname"
+                              id="contact"
+                              name="cont"
                               class="form-control"
                               placeholder="Philippines [+ 639]"
                               required
