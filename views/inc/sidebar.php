@@ -47,7 +47,7 @@
                   <ul class="nav nav-collapse">
 
                     <li>
-                      <a href="medicalrecord.php?page=">
+                      <a href="medicalrecord.php">
                         <span class="sub-item">Programs</span>
                       </a>
                     </li>

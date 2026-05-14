@@ -31,19 +31,106 @@
 
             
               <div class="row">
-                <div class="col-md-8">
-                  <div class="card">
+                <div class="col-md-8 <?= isset($_GET['page']) ? 'd-none' : '' ?>">
+                  <div class="card p-5">
                     <div class="card-header">
-                      this part the display will switch depending on the page name
-                      if page is addProgram then display the add program card, but if not then display the sections, yr, and students
+                      <?php
+                        if(isset($_GET['program']) && isset($_GET['yr'])):
+                      ?>
+                      
+                      <div class="table-responsive">
+                        <table
+                          id="basic-datatables"
+                          class="display table table-striped table-hover"
+                        >
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Student Number</th>
+                              <th>Last Name</th>
+                              <th>First Name</th>
+                              <th>Middle  Name</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+
+                          <tbody>
+                            <tr onclick="window.location='medicalrecord.php?program=<?//= $res['program_id'] ?>&&yr=<?//= $res['year_level_id'] ?>&&student='" style="cursor:pointer;">
+                              <td>Tiger Nixon</td>
+                              <td>System Architect</td>
+                              <td>Edinburgh</td>
+                              <td>61</td>
+                              <td>2011/04/25</td>
+                              <td>$320,800</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <?php else: ?>
+                      <?php endif; ?>
+                      page will show programs, sections & year
                     </div>
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="card">
-                    <div class="card-header">
-                      if the page is for addingProgram then the page will display this card. if not, no display
-                    </div>
+                  <div class="card p-5">
+                      <?php
+                      if(isset($_GET['student'])):
+                        echo "this should show the students medical info if students' name was clicked";
+                      ?>
+                      <?php elseif(isset($_GET['page']) == "addProgram"): ?>
+                        <form action="../pages/program.php" method="POST">
+                          <div class="card-header">
+                            <div class="card-title">ADD PROGRAM</div>
+                          </div>
+                          <div class="card-body">
+                            <div class="form-group">
+                              <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"
+                                  >Program Name: </span
+                                >
+                                <input
+                                  type="text"
+                                  name="prog_name"
+                                  class="form-control"
+                                  placeholder="e.g. Bachelor of Science in Information Technology"
+                                  aria-describedby="basic-addon1"
+                                />
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"
+                                  >Program Code: </span
+                                >
+                                <input
+                                  type="text"
+                                  name="code"
+                                  class="form-control"
+                                  placeholder="e.g. BSIT"
+                                  aria-describedby="basic-addon1"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card-footer p-3">
+                            <input type="submit" name="addProgram" class="btn btn-success float-end mb-3">
+                          </div>
+                        </form>
+                        <p class="text-center" style="font-family: 'Roboto', sans-serif; font-size: 12px">Create a new program to organize student records effectively.</p>
+                        <p class="text-center" style="font-family: 'Roboto', sans-serif; font-size: 12px">“Add program details to continue managing academic records.”</p>
+                      <?php else: ?>
+                        <p class="text-center mt-3" style="font-family: 'Roboto', sans-serif;">
+                          “Medicine is not only about treating illness but also about caring 
+                          for people with compassion, accuracy, and responsibility. Every 
+                          medical record represents a person’s health journey and serves as 
+                          an important guide in providing proper care and treatment. 
+                          Maintaining organized and reliable health information helps 
+                          healthcare professionals make better decisions, improve patient 
+                          safety, and ensure quality healthcare for everyone.”
+                        </p>
+                        <p class="text-end" style="font-family: 'Roboto', sans-serif;">— William Osler</p>
+                      <?php endif; ?>
                   </div>
                 </div>
               </div>

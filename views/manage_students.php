@@ -33,14 +33,14 @@
                 <div class="row m-5">
                   <div class="col-md-12">
                     <div class="card p-5">
-                      <div class="card-body">
+                      <div class="card-header">
                         <div class="form-group">
                           <div class="input-icon">
                             <form action="../pages/student.php" method="POST">
                               <input
                                 type="text"
                                 class="form-control"
-                                placeholder="Search Student..."
+                                placeholder="Search <?= isset($_GET['search']) ? ucwords("Result for " . $_GET['search']) : '' ?> Student..."
                                 name="search"
                                 autofocus
                               />
@@ -68,11 +68,11 @@
                               if(isset($_SESSION['search_res'])){
                                 foreach($_SESSION['search_res'] as $res){
                             ?>
-                              <tr onclick="window.location='view.php?id=2'" style="cursor:pointer;">
+                              <tr onclick="window.location='medicalrecord.php?program=<?= $res['program_id'] ?>&&yr=<?= $res['year_level_id'] ?>'" style="cursor:pointer;">
                                   <td><?= $n++ . ". )" ?></td>
                                   <td><?= $res['student_number'] ?></td>
                                   <td><?= ucwords($res['last_name'] . ", " . $res['first_name'] . " " . $res['middle_name']) ?></td>
-                                  <td><?= ucwords($res['year_level_name'] . " Year - ") . strtoupper($res['program_name']) ?></td>
+                                  <td><?= ucwords($res['year_level_name'] . " Year - ") . strtoupper($res['program_name'] . " (" . $res['program_code']) . ")" ?></td>
                               </tr>
                             <?php }} unset($_SESSION['search_res']); ?>
                           </tbody>
@@ -220,7 +220,7 @@
                         </div>
 
                         <div class="card-footer p-3">
-                          <input type="submit" name="addStudent" class="btn btn-success ">
+                          <input type="submit" name="addStudent" class="btn btn-success float-end mb-3">
                         </div>
                       </form>
 

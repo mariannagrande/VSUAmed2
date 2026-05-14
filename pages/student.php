@@ -10,15 +10,15 @@
         
         }
 
-        
         if(isset($_POST['searchStud'])){
+            $prompt = $_POST['search'];
             $search = search($conn, $_POST);
             if(!empty($search)){
                 $_SESSION['search_res'] = $search;
             }else{
                 $_SESSION['search_error'] = "error";
             }
-            header("Location: ../views/manage_students.php?page=SearchStudent");
+            header("Location: ../views/manage_students.php?page=SearchStudent&&search=" . $prompt);
             exit();
         }
 
