@@ -46,7 +46,7 @@
                           <thead>
                             <tr>
                               <th>#</th>
-                              <th>Student Number</th>
+                              <th>Student #</th>
                               <th>Last Name</th>
                               <th>First Name</th>
                               <th>Middle  Name</th>
@@ -56,7 +56,7 @@
 
                           <tbody>
                             <tr onclick="window.location='medicalrecord.php?program=<?//= $res['program_id'] ?>&&yr=<?//= $res['year_level_id'] ?>&&student='" style="cursor:pointer;">
-                              <td>Tiger Nixon</td>
+                              <td>1.)</td>
                               <td>System Architect</td>
                               <td>Edinburgh</td>
                               <td>61</td>
@@ -72,7 +72,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-4">
+                <div class="<?= isset($_GET['page']) == 'addProgram' ? 'col-md-8' : 'col-md-4' ?>">
                   <div class="card p-5">
                       <?php
                       if(isset($_GET['student'])):
@@ -95,6 +95,7 @@
                                   class="form-control"
                                   placeholder="e.g. Bachelor of Science in Information Technology"
                                   aria-describedby="basic-addon1"
+                                  required
                                 />
                               </div>
                             </div>
@@ -108,6 +109,7 @@
                                   name="code"
                                   class="form-control"
                                   placeholder="e.g. BSIT"
+                                  required
                                   aria-describedby="basic-addon1"
                                 />
                               </div>

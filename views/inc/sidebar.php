@@ -37,29 +37,39 @@
                 </a>
               </li>
 
-              <li class="nav-item submenu"> <!-- Medical Record Collapse Button -->
-                <a data-bs-toggle="collapse" href="#medRec" class="collapsed" aria-expanded="false">
-                  <i class="fas fa-layer-group"></i>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#medRec">
+                  <i class="fas fa-bars"></i>
                   <p>Medical Records</p>
                   <span class="caret"></span>
                 </a>
                 <div class="collapse" id="medRec">
                   <ul class="nav nav-collapse">
-
                     <li>
-                      <a href="medicalrecord.php">
+                      <a data-bs-toggle="collapse" href="#programs">
                         <span class="sub-item">Programs</span>
+                        <span class="caret"></span>
                       </a>
+                      <div class="collapse" id="programs">
+                        <ul class="nav nav-collapse subnav">
+                          <li>
+                            <a href="#">
+                              <span class="sub-item">1st Year</span>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#">
+                              <span class="sub-item">2nd Year</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
                     </li>
-
                     <li>
                       <a href="medicalrecord.php?page=addProgram">
                         <span class="sub-item">Add Program</span>
                       </a>
                     </li>
-
-
-
                   </ul>
                 </div>
               </li>
@@ -90,7 +100,6 @@
                   </ul>
                 </div>
               </li>
-
               <!-- <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#submenu">
                   <i class="fas fa-bars"></i>
