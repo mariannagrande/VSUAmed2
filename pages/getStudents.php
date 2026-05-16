@@ -7,4 +7,14 @@
         return $main;
     }
 
+    function getStudent($id){
+        $record = getStudentById($id);
+        return $record;
+    }
+
+    function getStudentVisits($id){
+        $record = getRecentVisits($id);
+        return $record;
+    }
+
 ?>

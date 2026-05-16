@@ -103,5 +103,38 @@
         }
         return $students;
     }
-    
+
+    function getRecentVisits($id){
+        global $conn;
+
+        $sql = "SELECT *
+                FROM visits AS v
+                INNER JOIN prescription AS p ON p.visit_id = v.visit_id
+                INNER JOIN admin AS a ON a.staff_id = v.staff_id
+                WHERE v.student_id = ?
+                ORDER BY v.visit_date DESC
+                LIMIT 3";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $records = [];
+        while($row = $result->fetch_assoc()){
+            $records[] = $row;
+        }
+        return $records;
+    }
+
+    function getStudentById($id){
+        global $conn;
+        $sql = "SELECT *
+                FROM students
+                WHERE student_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
+    }
+
+
 ?>

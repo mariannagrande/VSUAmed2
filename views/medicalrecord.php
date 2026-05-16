@@ -36,7 +36,7 @@
                     <div class="card-header">
                       <?php
                         if(isset($_GET['program']) && isset($_GET['yr'])):
-                          include '../pages/getStudents.php'
+                        include '../pages/getStudents.php';
                         ?>
                     
                         <table
@@ -67,19 +67,49 @@
 
                         </table>
 
-
-                      <?php else: ?>
                       <?php endif; ?>
-                      page will show programs, sections & year
                     </div>
                   </div>
                 </div>
                 <div class="<?= isset($_GET['page']) == 'addProgram' ? 'col-md-8' : 'col-md-4' ?>">
                   <div class="card p-5">
                       <?php
-                      if(isset($_GET['student'])):
-                        echo "this should show the students medical info if students' name was clicked";
-                      ?>
+                        if(isset($_GET['student'])):
+                          $id = $_GET['student'];
+                          $stud = getStudent($id);
+                        ?>
+
+                          <div class="row justify-content-center">
+                            <h4 class="text-center">
+                                Mini-Medical Record
+                            </h4>
+                            <hr>
+                            <h6>Student Information</h6>
+                            <p>
+                                <strong style="font-size: 13px;">Student No:</strong> <u><?= $stud['student_number'] ?></u> <br>
+                                <strong style="font-size: 13px;">Name:</strong> <u><?= ucwords($stud['last_name'] . ", " . $stud['first_name'] . " " . $stud['middle_name']) ?></u> <br>
+                                <strong style="font-size: 13px;">Birth Date (YYYY/MM/DD):</strong> <u><?= $stud['birth_date'] ?></u> <br>
+                                <strong style="font-size: 13px;">Sex:</strong> <u><?= strtoupper($stud['sex']) ?></u> <br>
+                                <strong style="font-size: 13px;">Contact #:</strong> <u><?= $stud['contact_number'] ?></u> <br>
+                                <strong style="font-size: 13px;">Email:</strong> <u><?= $stud['stud_email'] ?></u> <br>
+                            </p>
+                            <hr>
+                            <h6>Recent Visits</h6>
+                            <?php
+                              $visit = getStudentVisits($id);
+                              if($visit):
+                                foreach($visit as $vs): ?>
+                              <small>
+                                  <?= ucwords($vs['diagnosis']) ?> <br>
+                                  <?= $vs['visit_date'] ?>
+                              </small>
+                            <?php endforeach; else: echo "
+                                    <small>
+                                        No Data Found.
+                                    </small>";
+                                  endif; ?>
+                          </div>
+
                       <?php elseif(isset($_GET['page']) == "addProgram"): ?>
                         <form action="../pages/program.php" method="POST">
                           <div class="card-header">
