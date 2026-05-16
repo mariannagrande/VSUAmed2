@@ -7,7 +7,7 @@
                 src="../assets/img/kaiadmin/logo_light.svg"
                 alt="navbar brand"
                 class="navbar-brand"
-                height="20"
+                height="20"  
               /> -->
               <p class="text-white text-center h4" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">CLINIC RECORDS</p>
             </a>
