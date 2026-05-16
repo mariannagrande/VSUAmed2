@@ -1,11 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <?php
-    session_start();
-    if(!isset($_SESSION['name'])){
-      header("Location: login.php");
-    }
-  ?>
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>VSUA -- <?= !empty($_SERVER['PHP_SELF']) ? strtoupper(pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME)) : 'SYSTEM' ?></title>
