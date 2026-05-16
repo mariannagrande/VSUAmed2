@@ -38,13 +38,6 @@
                 </a>
               </li>
 
-
-
-
-
-
-              
-
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#medRec">
                   <i class="fas fa-bars"></i>
