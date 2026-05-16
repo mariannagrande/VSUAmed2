@@ -125,16 +125,5 @@
         return $records;
     }
 
-    function getStudentById($id){
-        global $conn;
-        $sql = "SELECT *
-                FROM students
-                WHERE student_id = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        return $stmt->get_result()->fetch_assoc();
-    }
-
 
 ?>
