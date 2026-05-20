@@ -133,6 +133,7 @@
                                     id="sex"
                                     name="sex"
                                     >
+                                    <option value="" disabled selected>Select Sex</option>
                                     <option value="Female">FEMALE</option>
                                     <option value="Male">MALE</option>
                                   </select>
@@ -239,6 +240,7 @@
                                 name="year"
                                 required
                                 >
+                                <option value="" disabled selected>Select Year Level</option>
                                 <?php
                                   if($years):
                                     foreach($years as $yr):
@@ -257,6 +259,7 @@
                                 name="prog"
                                 required
                                 >
+                                  <option value="" disabled selected>Select Program</option>
                                 <?php
                                   if($programs):
                                     foreach($programs as $pr):
@@ -276,6 +279,7 @@
                                   name="sec"
                                   required
                                   >
+                                  <option value="" disabled selected>Select Section</option>
                                   <?php
                                     if($sections):
                                       foreach($sections as $sec):
@@ -296,6 +300,7 @@
                                   name="status"
                                   required
                                   >
+                                  <option value="" disabled selected>Select Status</option>
                                   <option value="Active">Regular</option>
                                   <option value="Irregular">Irregular</option>
                                 </select>
