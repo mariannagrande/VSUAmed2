@@ -35,4 +35,22 @@
         return $year;
     }
 
+    function getSection(){
+        global $conn;
+
+        $sql = "SELECT * FROM section";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        $section = [];
+
+        while($row = $result->fetch_assoc()){
+            $section[] = $row;
+        }
+        return $section;
+
+    }
+
 ?>

@@ -22,7 +22,7 @@
         <!---------------------------------Content------------------------------------->
 
         <div class="container">
-          <div class="page-inner">
+          <div class="page-inner p-5">
 
 
             <!----------------------------Edit Here------------------------------------>
@@ -94,129 +94,213 @@
 
               <?php else: ?>
 
-                <div class="row m-5">
-                  <div class="col-md-6">
+                <div class="row mx-5">
+                  <div class="col-md-12">
                     <div class="card">
 
                       <form action="../pages/student.php" method="POST" id="addStudent">
-                        <div class="card-header">
-                          <div class="card-title">ADD STUDENT</div>
+                        <div class="card-header row text-center">
+                          <div class="col-md-6">
+                            <div class="card-title">ADD STUDENTS' INFORMATION</div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="card-title">ENTER ENROLLMENT INFORMATION</div>
+                          </div>
                         </div>
                       
-                        <div class="card-body">
+                        <div class="card-body row">
+                          <div class="col-md-6">
+                            <div class="row">
 
-                          <div class="row">
-
-                            <div class="col-md-8">
-                              <div class="form-group">
-                                <label for="sn">Student Number: </label>
-                                <input
-                                  id="sn"
-                                  class="form-control"
-                                  name="num"
-                                  placeholder="2024-01"
-                                  required
-                                />
+                              <div class="col-md-8">
+                                <div class="form-group">
+                                  <label for="sn">Student Number: </label>
+                                  <input
+                                    id="sn"
+                                    class="form-control"
+                                    name="num"
+                                    placeholder="2024-01"
+                                    required
+                                  />
+                                </div>
                               </div>
+
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label for="defaultSelect">Sex: </label>
+                                  <select
+                                    class="form-select form-control"
+                                    id="sex"
+                                    name="sex"
+                                    >
+                                    <option value="Female">FEMALE</option>
+                                    <option value="Male">MALE</option>
+                                  </select>
+                                </div>
+                              </div>
+
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="row">
+
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="lname">Student Last Name: </label>
+                                  <input
+                                    id="lname"
+                                    name="lname"
+                                    class="form-control"
+                                    placeholder="Cruz"
+                                    required
+                                  />
+                                </div>
+                              </div>
+
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="lname">Student First Name: </label>
+                                  <input
+                                    id="fname"
+                                    name="fname"
+                                    class="form-control"
+                                    placeholder="John Doe"
+                                    required
+                                  />
+                                </div>
+                              </div>
+
+                            </div>
+
+                            <div class="row">
+
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label for="lname">Student Middle Name: </label>
+                                  <input
+                                    id="mname"
+                                    name="mname"
+                                    class="form-control"
+                                    placeholder="Mendoza"
+                                  />
+                                </div>
+                              </div>
+
+                              
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label for="lname">Birthday: </label>
+                                  <input
+                                    id="bday"
+                                    name="bday"
+                                    class="form-control"
+                                    type="date"
+                                    required
+                                  />
+                                </div>
+                              </div>
+                              
+                              <div class="col-md-5">
+                                <div class="form-group">
+                                  <label for="lname">Email: </label>
+                                  <input
+                                    id="email"
+                                    name="email"
+                                    class="form-control"
+                                    placeholder="johndoe@gmail.com"
+                                    required
+                                  />
+                                </div>
+                              </div>
+
+                            </div>
+                            <div class="form-group">
+                              <label for="lname">Contact Number: </label>
+                              <input
+                                id="contact"
+                                name="cont"
+                                class="form-control"
+                                placeholder="Philippines [+ 639]"
+                                required
+                              />
+                            </div>
+                          </div>
+                          <div class="col-md-6 p-5 row">
+                            <?php
+                              include_once '../model/fetch.php';
+                              $programs = getPrograms();
+                              $years = getYear();
+                              $sections = getsection();
+                              ?>
+                            <div class="form-group">
+                              <label for="defaultSelect">Year Level: </label>
+                              <select
+                                class="form-select form-control text-center"
+                                id="year"
+                                name="year"
+                                required
+                                >
+                                <?php
+                                  if($years):
+                                    foreach($years as $yr):
+                                  ?>
+                                  <option value="<?= $yr['year_level_id'] ?>"><?= strtoupper($yr['year_level_name']) ?> YEAR</option>
+                                <?php endforeach; else: ?>
+                                  <option disabled>No Year Level Available</option>
+                                <?php endif ?>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                              <label for="defaultSelect">Program: </label>
+                              <select
+                                class="form-select form-control text-center"
+                                id="prog"
+                                name="prog"
+                                required
+                                >
+                                <?php
+                                  if($programs):
+                                    foreach($programs as $pr):
+                                  ?>
+                                  <option value="<?= $pr['program_id'] ?>"><?= strtoupper($pr['program_code']) ?></option>
+                                <?php endforeach; else: ?>
+                                  <option disabled>No Program Available</option>
+                                <?php endif; ?>
+                              </select>
+                            </div>
+                            <div class="col-md-6">
                               <div class="form-group">
-                                <label for="defaultSelect">Sex: </label>
+                                <label for="defaultSelect">Section: </label>
                                 <select
-                                  class="form-select form-control"
-                                  id="sex"
-                                  name="sex"
+                                  class="form-select form-control text-center"
+                                  id="sec"
+                                  name="sec"
+                                  required
                                   >
-                                  <option value="Female">FEMALE</option>
-                                  <option value="Male">MALE</option>
+                                  <?php
+                                    if($sections):
+                                      foreach($sections as $sec):
+                                    ?>
+                                    <option value="<?= $sec['section_id'] ?>"><?= strtoupper($sec['section_name']) ?></option>
+                                  <?php endforeach; else: ?>
+                                    <option disabled>No Sections Available</option>
+                                  <?php endif; ?>
                                 </select>
                               </div>
                             </div>
-
-                          </div>
-
-                          <div class="row">
-
                             <div class="col-md-6">
                               <div class="form-group">
-                                <label for="lname">Student Last Name: </label>
-                                <input
-                                  id="lname"
-                                  name="lname"
-                                  class="form-control"
-                                  placeholder="Cruz"
+                                <label for="defaultSelect">Status: </label>
+                                <select
+                                  class="form-select form-control text-center"
+                                  id="status"
+                                  name="status"
                                   required
-                                />
+                                  >
+                                  <option value="Active">Regular</option>
+                                  <option value="Irregular">Irregular</option>
+                                </select>
                               </div>
                             </div>
-
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label for="lname">Student First Name: </label>
-                                <input
-                                  id="fname"
-                                  name="fname"
-                                  class="form-control"
-                                  placeholder="John Doe"
-                                  required
-                                />
-                              </div>
-                            </div>
-
-                          </div>
-
-                          <div class="row">
-
-                            <div class="col-md-4">
-                              <div class="form-group">
-                                <label for="lname">Student Middle Name: </label>
-                                <input
-                                  id="mname"
-                                  name="mname"
-                                  class="form-control"
-                                  placeholder="Mendoza"
-                                />
-                              </div>
-                            </div>
-
-                            
-                            <div class="col-md-3">
-                              <div class="form-group">
-                                <label for="lname">Birthday: </label>
-                                <input
-                                  id="bday"
-                                  name="bday"
-                                  class="form-control"
-                                  type="date"
-                                  required
-                                />
-                              </div>
-                            </div>
-                            
-                            <div class="col-md-5">
-                              <div class="form-group">
-                                <label for="lname">Email: </label>
-                                <input
-                                  id="email"
-                                  name="email"
-                                  class="form-control"
-                                  placeholder="johndoe@gmail.com"
-                                  required
-                                />
-                              </div>
-                            </div>
-
-                          </div>
-                          <div class="form-group">
-                            <label for="lname">Contact Number: </label>
-                            <input
-                              id="contact"
-                              name="cont"
-                              class="form-control"
-                              placeholder="Philippines [+ 639]"
-                              required
-                            />
                           </div>
                         </div>
 

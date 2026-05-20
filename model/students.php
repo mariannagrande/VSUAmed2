@@ -46,13 +46,8 @@
             );
 
             $stmt->execute();
-
-            echo "
-                <script>
-                    alert('Student added successfully.')
-                    window.location.href = '../views/manage_students.php?page=AddStudent'
-                </script>
-            ";
+            $student_id = $conn->insert_id;
+            return $student_id;
         }
     }
 
@@ -136,5 +131,25 @@
         return $stmt->get_result()->fetch_assoc();
     }
 
+    function enrollStud($id, $post){
+        global $conn;
+        $sql = "INSERT INTO student_enrollment
+        (student_id, year_level_id, program_id, section_id, status, enrollment_date)
+        VALUES (?, ?, ?, ?, ?, NOW())";
 
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bind_param(
+            "sssss",
+            $id,
+            $post['year'],
+            $post['prog'],
+            $post['sec'],
+            $post['status']
+        );
+
+        $stmt->execute();
+        return $stmt;
+
+    }
 ?>

@@ -6,8 +6,16 @@
     if ($_SERVER["REQUEST_METHOD"] === 'POST') {
 
         if(isset($_POST['addStudent'])){
-            $add = addStdnt($conn, $_POST);
-        
+            $addstud = addStdnt($conn, $_POST);
+            $Estud   = enrollStud($addstud, $_POST);
+            if($Estud){
+                echo "
+                    <script>
+                        alert('Student added successfully.')
+                        window.location.href = '../views/manage_students.php?page=AddStudent'
+                    </script>
+                ";
+            }
         }
 
         if(isset($_POST['searchStud'])){

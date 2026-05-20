@@ -47,7 +47,7 @@
                 <div class="collapse" id="medRec" data-bs-parent="#mainSidebarAccordion">
                   <ul class="nav nav-collapse"  id="programAccordion">
                     <?php
-                      include '../model/sidebarFunction.php';
+                      include_once '../model/fetch.php';
                       $programs = getPrograms();
                       if($programs):
                       foreach($programs as $prog):
