@@ -40,8 +40,9 @@
                               <input
                                 type="text"
                                 class="form-control"
-                                placeholder="Search <?= isset($_GET['search']) ? ucwords("Result for " . $_GET['search']) : '' ?> Student..."
+                                placeholder="Search Student..."
                                 name="search"
+                                <?= isset($_GET['search']) ? "value='" . ucwords($_GET['search']) . "'" : '' ?>
                                 autofocus
                               />
                               <input type="submit" name="searchStud" hidden>
