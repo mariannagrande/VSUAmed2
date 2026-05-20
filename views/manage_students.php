@@ -104,7 +104,7 @@
                             <div class="card-title">ADD STUDENTS' INFORMATION</div>
                           </div>
                           <div class="col-md-6">
-                            <div class="card-title">ENTER ENROLLMENT INFORMATION</div>
+                            <div class="card-title">ENROLLMENT INFORMATION</div>
                           </div>
                         </div>
                       
