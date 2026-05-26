@@ -324,7 +324,7 @@
                           </div>
                           <div class="u-text">
                             <h4><?=  !empty($_SESSION['name']) ? $_SESSION['name'] : '' ; ?></h4>
-                            <p class="text-muted">hello@example.com</p>
+                            <p class="text-muted"><?= !empty($_SESSION['username']) ? $_SESSION['username'] : '' ; ?></p>
                             <a
                               href="profile.html"
                               class="btn btn-xs btn-secondary btn-sm"

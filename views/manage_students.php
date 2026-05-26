@@ -70,7 +70,7 @@
                                 foreach($_SESSION['search_res'] as $res){
                             ?>
                               <tr onclick="window.location='medicalrecord.php?program=<?= $res['program_id'] ?>&&yr=<?= $res['year_level_id'] ?>&&student=<?= $res['student_id'] ?>'" style="cursor:pointer;">
-                                  <td><?= $n++ . ". )" ?></td>
+                                  <td class="text-center"><?= $n++ . ". )" ?></td>
                                   <td><?= $res['student_number'] ?></td>
                                   <td><?= ucwords($res['last_name'] . ", " . $res['first_name'] . " " . $res['middle_name']) ?></td>
                                   <td class="text-center"><?= ucwords($res['year_level_name'] . " Year - ") . strtoupper($res['program_code'])?></td>

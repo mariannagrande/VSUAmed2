@@ -37,7 +37,7 @@
                   <p>Dashboard</p>
                 </a>
               </li>
-
+              <hr class="m-3">
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#medRec">
                   <i class="fas fa-bars"></i>
