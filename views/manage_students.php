@@ -28,7 +28,7 @@
             <!----------------------------Edit Here------------------------------------>
               
             <?php
-              if ($_GET['page'] == "SearchStudent"): ?>
+              if (isset($_GET['pages']) == "SearchStudent"): ?>
 
                 <div class="row m-5">
                   <div class="col-md-12">
