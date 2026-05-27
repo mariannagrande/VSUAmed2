@@ -263,6 +263,7 @@
     <!-- Kaiadmin DEMO methods, don't include it in your project! -->
     <script src="../assets/js/setting-demo.js"></script>
     <script src="../assets/js/demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
       $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
         type: "line",
@@ -345,6 +346,34 @@
             ]);
           $("#addRowModal").modal("hide");
         });
+      });
+    </script>
+    <?php include_once '../model/fetch.php'; $data = getRecordByMonth() ?>
+    <script>
+      new Chart(document.getElementById('myChart'), {
+          type: 'line',
+          data: {
+              labels: <?= json_encode($data['months']) ?>,
+              datasets: [{
+                  label: 'Monthly Visits',
+                  data: <?= json_encode($data['totals']) ?>,
+                  borderWidth: 2,
+                  tension: 0.3
+              }]
+          },
+
+        options: {
+            scales: {
+                x: {
+                    ticks: {
+                        padding: 10
+                    }
+                },
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
       });
     </script>
   </body>

@@ -96,4 +96,33 @@
 
     }
 
+    function getRecordByMonth(){
+        global $conn;
+
+        $sql = "SELECT
+                MONTHNAME(created_at) AS month,
+                COUNT(*) AS total
+            FROM visits
+            GROUP BY MONTH(created_at)
+            ORDER BY MONTH(created_at)";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        $months = [];
+        $totals = [];
+
+        while($row = $result->fetch_assoc()){
+            $months[] = $row['month'];
+            $totals[] = $row['total'];
+        }
+
+        return [
+            'months' => $months,
+            'totals' => $totals
+        ];
+    }
+
 ?>
