@@ -43,8 +43,8 @@
 
               <hr class="m-3">
 
-              <li class="nav-item"> <!-- Dashboard Button -->
-                <a href="#">
+              <li class="nav-item <?= $page == 'addRecord.php' ? 'submenu' : '' ?>"> <!-- Dashboard Button -->
+                <a href="addRecord.php">
                   <i class="fas fa-plus"></i>
                   <p>Add Record</p>
                 </a>
@@ -117,6 +117,13 @@
 
                   </ul>
                 </div>
+              </li>
+
+              <li class="nav-item <?= $page == 'history.php' ? 'submenu' : '' ?>"> <!-- Dashboard Button -->
+                <a href="history.php">
+                  <i class="fas fa-history"></i>
+                  <p>History</p>
+                </a>
               </li>
 
               <hr class="m-3">
