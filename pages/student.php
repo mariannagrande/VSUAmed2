@@ -26,7 +26,7 @@
             }else{
                 $_SESSION['search_error'] = "error";
             }
-            header("Location: ../views/manage_students.php?page=SearchStudent&&search=" . $prompt);
+            header("Location: ../views/manage_students.php?pages=SearchStudent&&search=" . $prompt);
             exit();
         }
 

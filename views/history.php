@@ -23,7 +23,36 @@
 
         <div class="container">
           <div class="page-inner">
-            hi
+
+            <div class="card p-5">
+              <table
+                id="basic-datatables"
+                class="display table table-striped table-hover"
+                >
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Student Number</th>
+                    <th>Diagnoses</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+
+                <?php
+                  ?>
+                  <tbody>
+                    <tr onclick="window.location='?program=<?//= $pr ?>&&yr=<?//= $yr ?>&&student=<?//= $stud['student_id'] ?>'" style="cursor:pointer;">
+                      <td><?//= strtoupper($stud['section_name']) ?></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                <?//php endforeach; endif; ?>
+
+              </table>
+            </div>
+            
           </div>
         </div>
 
