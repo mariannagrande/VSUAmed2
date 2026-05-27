@@ -12,6 +12,7 @@
             if($user){
                 $_SESSION['name'] = $user['fulll_name'];
                 $_SESSION['username'] = $user['username'];
+                $_SESSION['id'] = $user['staff_id'];
                 header("Location: ../views/dashboard.php");
             }
         }
