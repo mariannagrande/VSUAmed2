@@ -205,7 +205,7 @@
             $post['med'],
             $post['dose'],
             $post['dur'],
-            $post['in']
+            $post['ins']
         );
         if ($stmt->execute()) {
             return true;
