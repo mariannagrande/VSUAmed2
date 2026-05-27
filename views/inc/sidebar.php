@@ -57,7 +57,7 @@
                   <span class="caret"></span>
                 </a>
 
-                <div class="collapse <?= isset($_GET['program']) ? 'show' : '' ?>"
+                <div class="collapse <?= isset($_GET['program']) || isset($_GET['pagess']) ? 'show' : '' ?>"
                     id="medRec"
                     data-bs-parent="#mainSidebarAccordion">
 
@@ -109,8 +109,8 @@
 
                     <?php endforeach; endif; ?>
 
-                    <li>
-                      <a href="medicalrecord.php?page=addProgram">
+                    <li class="<?= isset($_GET['pagess']) ? 'active' : '' ?>">
+                      <a href="medicalrecord.php?pagess=addProgram">
                         <span class="sub-item">Add Program</span>
                       </a>
                     </li>

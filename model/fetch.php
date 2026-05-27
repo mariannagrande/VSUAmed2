@@ -59,6 +59,7 @@
         $sql = "SELECT * FROM visits AS v
                 INNER JOIN prescription AS p ON p.visit_id = v.visit_id
                 INNER JOIN students AS s ON s.student_id = v.student_id
+                INNER JOIN admin AS a ON a.staff_id = v.staff_id
                 ORDER BY v.created_at DESC";
         $stmt = $conn->prepare($sql);
         $stmt->execute();

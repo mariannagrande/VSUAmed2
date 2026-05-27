@@ -31,7 +31,7 @@
 
             
               <div class="row">
-                <div class="col-md-8 <?= isset($_GET['page']) ? 'd-none' : '' ?>">
+                <div class="col-md-8 <?= isset($_GET['pagess']) ? 'd-none' : '' ?>">
                   <div class="card p-5">
                     <div class="card-header">
                       <?php
@@ -71,7 +71,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="<?= isset($_GET['page']) == 'addProgram' ? 'col-md-8' : 'col-md-4' ?>">
+                <div class="<?= isset($_GET['pagess']) == 'addProgram' ? 'col-md-8' : 'col-md-4' ?>">
                   <div class="card p-5">
                       <?php
                         if(isset($_GET['student'])):
@@ -110,7 +110,7 @@
                                   endif; ?>
                           </div>
 
-                      <?php elseif(isset($_GET['page']) == "addProgram"): ?>
+                      <?php elseif(isset($_GET['pagess']) == "addProgram"): ?>
                         <form action="../pages/program.php" method="POST">
                           <div class="card-header">
                             <div class="card-title">ADD PROGRAM</div>
