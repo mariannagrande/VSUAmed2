@@ -75,4 +75,25 @@
 
     }
 
+    function getE_Student(){
+        global $conn;
+
+        $sql = "SELECT * FROM students AS s
+                INNER JOIN student_enrollment AS se ON se.student_id = s.student_id
+                WHERE se.status = 'Active'
+                OR se.status = 'Irregular'";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        $section = [];
+
+        while($row = $result->fetch_assoc()){
+            $section[] = $row;
+        }
+        return $section;
+
+    }
+
 ?>
