@@ -162,7 +162,7 @@
                 WHERE student_number = ?";
 
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $num['stud_number']);
+        $stmt->bind_param("s", $num['stud_number']);
         $stmt->execute();
 
         $result = $stmt->get_result()->fetch_assoc();

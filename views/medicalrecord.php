@@ -74,7 +74,7 @@
                 <div class="<?= isset($_GET['pagess']) == 'addProgram' ? 'col-md-8' : 'col-md-4' ?>">
                   <div class="card p-5">
                       <?php
-                        if(isset($_GET['student'])):
+                        if(!empty($_GET['student'])):
                           $id = $_GET['student'];
                           $stud = getStudent($id);
                         ?>
