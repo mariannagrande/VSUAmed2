@@ -33,22 +33,26 @@
                   <tr>
                     <th>#</th>
                     <th>Student Number</th>
-                    <th>Diagnoses</th>
+                    <th>Diagnosis</th>
                     <th>Date</th>
                   </tr>
                 </thead>
 
-                <?php
-                  ?>
-                  <tbody>
-                    <tr onclick="window.location='?program=<?//= $pr ?>&&yr=<?//= $yr ?>&&student=<?//= $stud['student_id'] ?>'" style="cursor:pointer;">
-                      <td><?//= strtoupper($stud['section_name']) ?></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                <tbody>
+                  <?php
+                    $history = getVisitHistory();
+                    if($history):
+                      $n = 1;
+                      foreach($history as $h):
+                    ?>
+                    <tr>
+                      <td><?= $n++ . ".)" ?></td>
+                      <td class="text-center"><?= $h['student_number'] ?></td>
+                      <td><?= $h['diagnosis'] ?></td>
+                      <td><?= date("F d, Y - g:i A", strtotime($h['created_at']))?></td>
                     </tr>
-                  </tbody>
-                <?//php endforeach; endif; ?>
+                  <?php endforeach; endif; ?>
+                </tbody>
 
               </table>
             </div>

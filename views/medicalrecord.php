@@ -88,7 +88,7 @@
                             <p>
                                 <strong style="font-size: 13px;">Student No:</strong> <u><?= $stud['student_number'] ?></u> <br>
                                 <strong style="font-size: 13px;">Name:</strong> <u><?= ucwords($stud['last_name'] . ", " . $stud['first_name'] . " " . $stud['middle_name']) ?></u> <br>
-                                <strong style="font-size: 13px;">Birth Date (YYYY/MM/DD):</strong> <u><?= $stud['birth_date'] ?></u> <br>
+                                <strong style="font-size: 13px;">Birthday:</strong> <u><?= date("F d, Y ", strtotime($stud['birth_date'])) ?></u> <br>
                                 <strong style="font-size: 13px;">Sex:</strong> <u><?= strtoupper($stud['sex']) ?></u> <br>
                                 <strong style="font-size: 13px;">Contact #:</strong> <u><?= $stud['contact_number'] ?></u> <br>
                                 <strong style="font-size: 13px;">Email:</strong> <u><?= $stud['stud_email'] ?></u> <br>
@@ -101,7 +101,7 @@
                                 foreach($visit as $vs): ?>
                               <small class="px-5">
                                   <?= ucwords($vs['diagnosis']) ?> <br>
-                                  <?= $vs['created_at'] ?>
+                                  <?= date("F d, Y - g:i A", strtotime($vs['created_at'])) ?>
                               </small>
                             <?php endforeach; else: echo "
                                     <small>
