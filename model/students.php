@@ -109,8 +109,7 @@
                 INNER JOIN prescription AS p ON p.visit_id = v.visit_id
                 INNER JOIN admin AS a ON a.staff_id = v.staff_id
                 WHERE v.student_id = ?
-                ORDER BY v.visit_date DESC
-                LIMIT 3";
+                ORDER BY v.created_at DESC";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $id);
         $stmt->execute();

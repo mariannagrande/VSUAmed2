@@ -99,9 +99,9 @@
                               $visit = getStudentVisits($id);
                               if($visit):
                                 foreach($visit as $vs): ?>
-                              <small>
+                              <small class="px-5">
                                   <?= ucwords($vs['diagnosis']) ?> <br>
-                                  <?= $vs['visit_date'] ?>
+                                  <?= $vs['created_at'] ?>
                               </small>
                             <?php endforeach; else: echo "
                                     <small>
