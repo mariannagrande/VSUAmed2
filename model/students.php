@@ -76,7 +76,6 @@
         }
         return $students;
     }
-
     
     function getStudentsByYear($pr, $yr){
         global $conn;
