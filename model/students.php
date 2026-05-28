@@ -109,8 +109,7 @@
                 INNER JOIN prescription AS p ON p.visit_id = v.visit_id
                 INNER JOIN admin AS a ON a.staff_id = v.staff_id
                 WHERE v.student_id = ?
-                ORDER BY v.visit_date DESC
-                LIMIT 3";
+                ORDER BY v.created_at DESC";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -153,5 +152,65 @@
         $stmt->execute();
         return $stmt;
 
+    }
+
+    function getStudentByNumber($num){
+        global $conn;
+
+        $sql = "SELECT student_id
+                FROM students
+                WHERE student_number = ?";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $num['stud_number']);
+        $stmt->execute();
+
+        $result = $stmt->get_result()->fetch_assoc();
+
+        if ($result) {
+            return $result['student_id'];
+        }
+
+        return null;
+    }
+
+    function addVisitInfo($id, $post){
+        global $conn;
+        $sql = "INSERT INTO visits (student_id, staff_id, complaint, diagnosis, notes, created_at)
+                    VALUES (?, ?, ?, ?, ?, NOW())";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param(
+            "iisss",
+            $id,
+            $post['staff'],
+            $post['complaint'],
+            $post['diag'],
+            $post['note']
+        );
+        if ($stmt->execute()) {
+            return $conn->insert_id; //
+        }
+    }
+
+    function addPrescriptInfo($id, $post){
+        global $conn;
+        $sql = "INSERT INTO prescription (visit_id, medicine_name, dosage, duration, instructions)
+                    VALUES (?, ?, ?, ?, ?)";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param(
+            "issss",
+            $id,
+            $post['med'],
+            $post['dose'],
+            $post['dur'],
+            $post['ins']
+        );
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 ?>

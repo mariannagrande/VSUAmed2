@@ -1,6 +1,9 @@
       <div class="sidebar" data-background-color="dark">
         <div class="sidebar-logo">
           <!-- Logo Header -->
+          <?php
+            $page = basename($_SERVER['PHP_SELF']);
+          ?>
           <div class="logo-header" data-background-color="dark">
             <a href="https://www.instagram.com/_shrwin.dv?helloWorld" class="logo">
               <!-- <img
@@ -31,74 +34,117 @@
 
               <!---------------------- Sidebar ----------------------->
               
-              <li class="nav-item"> <!-- Dashboard Button -->
+              <li class="nav-item <?= $page == 'dashboard.php' ? 'submenu' : '' ?>"> <!-- Dashboard Button -->
                 <a href="dashboard.php">
                   <i class="fas fa-layer-group"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
 
+              <hr class="m-3">
+
+              <li class="nav-item <?= $page == 'addRecord.php' ? 'submenu' : '' ?>"> <!-- Dashboard Button -->
+                <a href="addRecord.php">
+                  <i class="fas fa-plus"></i>
+                  <p>Add Record</p>
+                </a>
+              </li>
+
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#medRec">
-                  <i class="fas fa-bars"></i>
+                  <i class="fas fa-book"></i>
                   <p>Medical Records</p>
                   <span class="caret"></span>
                 </a>
-                <div class="collapse" id="medRec" data-bs-parent="#mainSidebarAccordion">
-                  <ul class="nav nav-collapse"  id="programAccordion">
+
+                <div class="collapse <?= isset($_GET['program']) || isset($_GET['pagess']) ? 'show' : '' ?>"
+                    id="medRec"
+                    data-bs-parent="#mainSidebarAccordion">
+
+                  <ul class="nav nav-collapse" id="programAccordion">
+
                     <?php
-                      include_once '../model/fetch.php';
-                      $programs = getPrograms();
-                      if($programs):
+                    include_once '../model/fetch.php';
+                    $programs = getPrograms();
+
+                    if($programs):
                       foreach($programs as $prog):
-                      ?>
-                      <li>
-                        <a data-bs-toggle="collapse" href="#programs<?= $prog['program_id'] ?>">
-                          <span class="sub-item"><?= strtoupper($prog['program_code']) ?></span>
-                          <span class="caret"></span>
-                        </a>
-                        <div class="collapse" id="programs<?= $prog['program_id'] ?>" data-bs-parent="#programAccordion">
-                          <ul class="nav nav-collapse subnav">
-                            <?php
-                              $years = getYear();
-                              foreach ($years as $yr):
-                              ?>
-                              <li>
-                                <a href="medicalrecord.php?program=<?= $prog['program_id'] ?>&&yr=<?= $yr['year_level_id'] ?>">
-                                  <span class="sub-item"><?= $yr['year_level_name'] . " Year" ?></span>
-                                </a>
-                              </li>
-                            <?php endforeach; ?>
-                          </ul>
-                        </div>
-                      </li>
-                    <?php endforeach; endif; ?>
+                    ?>
+
                     <li>
-                      <a href="medicalrecord.php?page=addProgram">
+                      <a data-bs-toggle="collapse" href="#programs<?= $prog['program_id'] ?>">
+                        <span class="sub-item"><?= strtoupper($prog['program_code']) ?></span>
+                        <span class="caret"></span>
+                      </a>
+
+                      <div class="collapse <?= (isset($_GET['program']) && $_GET['program'] == $prog['program_id']) ? 'show' : '' ?>"
+                          id="programs<?= $prog['program_id'] ?>"
+                          data-bs-parent="#programAccordion">
+
+                        <ul class="nav nav-collapse subnav">
+
+                          <?php
+                          $years = getYear();
+
+                          foreach ($years as $yr):
+                          ?>
+
+                          <li class="<?= (isset($_GET['yr']) && isset($_GET['program']) &&
+                                          $_GET['yr'] == $yr['year_level_id'] &&
+                                          $_GET['program'] == $prog['program_id']) ? 'active' : '' ?>">
+
+                            <a href="medicalrecord.php?program=<?= $prog['program_id'] ?>&yr=<?= $yr['year_level_id'] ?>">
+                              <span class="sub-item">
+                                <?= $yr['year_level_name'] . " Year" ?>
+                              </span>
+                            </a>
+
+                          </li>
+
+                          <?php endforeach; ?>
+
+                        </ul>
+                      </div>
+                    </li>
+
+                    <?php endforeach; endif; ?>
+
+                    <li class="<?= isset($_GET['pagess']) ? 'active' : '' ?>">
+                      <a href="medicalrecord.php?pagess=addProgram">
                         <span class="sub-item">Add Program</span>
                       </a>
                     </li>
+
                   </ul>
                 </div>
               </li>
 
-              <li class="nav-item submenu"> <!-- Student Collapse Button -->
-                <a data-bs-toggle="collapse" href="#Students" class="collapsed" aria-expanded="false">
-                  <i class="fas fa-layer-group"></i>
+              <li class="nav-item <?= $page == 'history.php' ? 'submenu' : '' ?>"> <!-- Dashboard Button -->
+                <a href="history.php">
+                  <i class="fas fa-history"></i>
+                  <p>History</p>
+                </a>
+              </li>
+
+              <hr class="m-3">
+
+              <li class="nav-item"> <!-- Student Collapse Button -->
+                <a data-bs-toggle="collapse" href="#Students" class="collapsed">
+                  <i class="fas fa-users"></i>
                   <p>Students</p>
                   <span class="caret"></span>
                 </a>
-                <div class="collapse" id="Students" data-bs-parent="#mainSidebarAccordion">
+                <div class="collapse <?= isset($_GET['page']) || isset($_GET['pages']) ? 'show' : '' ?>" id="Students" data-bs-parent="#mainSidebarAccordion">
                   <ul class="nav nav-collapse">
 
-                    <li>
+                    <li class="<?= isset($_GET['page'])== 'AddStudent' ? 'active' : '' ?>">
                       <a href="manage_students.php?page=AddStudent">
                         <span class="sub-item">Add Students</span>
                       </a>
                     </li>
 
-                    <li>
-                      <a href="manage_students.php?page=SearchStudent">
+                    <li class="<?= isset($_GET['pages']) == 'SearchStudent' ? 'active' : '' ?>">
+                      <a href="manage_students.php?pages=SearchStudent">
                         <span class="sub-item">Search Students</span>
                       </a>
                     </li>
@@ -107,6 +153,13 @@
 
                   </ul>
                 </div>
+              </li>
+              
+              <li class="nav-item mt-5"> <!-- Dashboard Button -->
+                <a href="../pages/logout.php">
+                  <i class="fas fa-lock"></i>
+                  <p>Logout</p>
+                </a>
               </li>
 
               <!-- <li class="nav-item">
