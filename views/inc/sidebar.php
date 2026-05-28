@@ -1,10 +1,10 @@
-      <div class="sidebar" data-background-color="dark">
+      <div class="sidebar" style="background-color: #000230">
         <div class="sidebar-logo">
           <!-- Logo Header -->
           <?php
             $page = basename($_SERVER['PHP_SELF']);
           ?>
-          <div class="logo-header" data-background-color="dark">
+          <div class="logo-header" style="background-color: #17a2b8">
             <a href="https://www.instagram.com/_shrwin.dv?helloWorld" class="logo">
               <!-- <img
                 src="../assets/img/kaiadmin/logo_light.svg"
@@ -29,7 +29,7 @@
           <!-- End Logo Header -->
         </div>
         <div class="sidebar-wrapper scrollbar scrollbar-inner">
-          <div class="sidebar-content">
+          <div class="sidebar-content text-white">
             <ul class="nav nav-secondary" id="mainSidebarAccordion">
 
               <!---------------------- Sidebar ----------------------->
