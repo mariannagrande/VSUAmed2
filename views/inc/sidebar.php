@@ -5,7 +5,7 @@
             $page = basename($_SERVER['PHP_SELF']);
           ?>
           <div class="logo-header" style="background-color: #17a2b8">
-            <a href="https://www.instagram.com/_shrwin.dv?helloWorld" class="logo">
+            <a href="#" class="logo">
               <!-- <img
                 src="../assets/img/kaiadmin/logo_light.svg"
                 alt="navbar brand"
