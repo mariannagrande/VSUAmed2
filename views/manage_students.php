@@ -174,7 +174,7 @@
 
                             <div class="row">
 
-                              <div class="col-md-4">
+                              <div class="col-md-7">
                                 <div class="form-group">
                                   <label for="lname">Student Middle Name: </label>
                                   <input
@@ -187,7 +187,7 @@
                               </div>
 
                               
-                              <div class="col-md-3">
+                              <div class="col-md-5">
                                 <div class="form-group">
                                   <label for="lname">Birthday: </label>
                                   <input
@@ -200,7 +200,7 @@
                                 </div>
                               </div>
                               
-                              <div class="col-md-5">
+                              <div class="col-md-6">
                                 <div class="form-group">
                                   <label for="lname">Email: </label>
                                   <input
@@ -212,17 +212,18 @@
                                   />
                                 </div>
                               </div>
+                              
+                              <div class="form-group col-md-6">
+                                <label for="lname">Contact Number: </label>
+                                <input
+                                  id="contact"
+                                  name="cont"
+                                  class="form-control"
+                                  placeholder="Philippines [+ 639]"
+                                  required
+                                />
+                              </div>
 
-                            </div>
-                            <div class="form-group">
-                              <label for="lname">Contact Number: </label>
-                              <input
-                                id="contact"
-                                name="cont"
-                                class="form-control"
-                                placeholder="Philippines [+ 639]"
-                                required
-                              />
                             </div>
                           </div>
                           <div class="col-md-6 p-5 row">
