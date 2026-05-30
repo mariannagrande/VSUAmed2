@@ -69,44 +69,27 @@
 
                     if($programs):
                       foreach($programs as $prog):
-                    ?>
-
-                    <li>
-                      <a data-bs-toggle="collapse" href="#programs<?= $prog['program_id'] ?>">
-                        <span class="sub-item"><?= strtoupper($prog['program_code']) ?></span>
-                        <span class="caret"></span>
-                      </a>
-
-                      <div class="collapse <?= (isset($_GET['program']) && $_GET['program'] == $prog['program_id']) ? 'show' : '' ?>"
-                          id="programs<?= $prog['program_id'] ?>"
-                          data-bs-parent="#programAccordion">
-
-                        <ul class="nav nav-collapse subnav">
-
-                          <?php
-                          $years = getYear();
-
-                          foreach ($years as $yr):
-                          ?>
-
-                          <li class="<?= (isset($_GET['yr']) && isset($_GET['program']) &&
-                                          $_GET['yr'] == $yr['year_level_id'] &&
-                                          $_GET['program'] == $prog['program_id']) ? 'active' : '' ?>">
-
-                            <a href="medicalrecord.php?program=<?= $prog['program_id'] ?>&yr=<?= $yr['year_level_id'] ?>">
-                              <span class="sub-item">
-                                <?= $yr['year_level_name'] . " Year" ?>
-                              </span>
-                            </a>
-
-                          </li>
-
-                          <?php endforeach; ?>
-
-                        </ul>
-                      </div>
-                    </li>
-
+                      ?>
+                      <li>
+                        <a data-bs-toggle="collapse" href="#programs<?= $prog['program_id'] ?>">
+                          <span class="sub-item"><?= strtoupper($prog['program_code']) ?></span>
+                          <span class="caret"></span>
+                        </a>
+                        <div class="collapse" id="programs<?= $prog['program_id'] ?>" data-bs-parent="#programAccordion">
+                          <ul class="nav nav-collapse subnav">
+                            <?php
+                              $years = getYear();
+                              foreach ($years as $yr):
+                              ?>
+                              <li>
+                                <a href="medicalrecord.php?program=<?= $prog['program_id'] ?>&&yr=<?= $yr['year_level_id'] ?>">
+                                  <span class="sub-item"><?= $yr['year_level_name'] . " Year" ?></span>
+                                </a>
+                              </li>
+                            <?php endforeach; ?>
+                          </ul>
+                        </div>
+                      </li>
                     <?php endforeach; endif; ?>
 
                     <li class="<?= isset($_GET['pagess']) ? 'active' : '' ?>">

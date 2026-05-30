@@ -29,7 +29,7 @@
 
             <!----------------------------Edit Here------------------------------------>
 
-            
+              
               <div class="row">
                 <div class="col-md-8 <?= isset($_GET['pagess']) ? 'd-none' : '' ?>">
                   <div class="card p-5">

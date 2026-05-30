@@ -73,7 +73,7 @@
                                   <td class="text-center"><?= $n++ . ". )" ?></td>
                                   <td><?= $res['student_number'] ?></td>
                                   <td><?= ucwords($res['last_name'] . ", " . $res['first_name'] . " " . $res['middle_name']) ?></td>
-                                  <td class="text-center"><?= ucwords($res['year_level_name'] . " Year - ") . strtoupper($res['program_code'])?></td>
+                                  <td class="text-center"><?= ucwords($res['year_level_name'] . " - ") . strtoupper($res['program_code'])?></td>
                               </tr>
                             <?php }} unset($_SESSION['search_res']); ?>
                           </tbody>

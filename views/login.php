@@ -1,111 +1,250 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
     session_start();
     if(isset($_SESSION['name'])){
         header("Location: dashboard.php");
     }
 ?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>School Clinic Login</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <title>VSUA Medical Rec - Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-    <!-- Custom fonts for this template-->
-    <link href="../assets/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        rel="icon"
-        href="../assets/img/kaiadmin/favicon.ico"
-        type="image/x-icon"
-    />
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('d.png') center/cover no-repeat;
+      overflow-x: hidden;
+      padding: 20px;
+      position: relative;
+    }
 
-    <!-- Custom styles for this template-->
-    <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
+    /* lighter overlay so background is more visible */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.25);
+      z-index: 0;
+    }
 
+    /* reduce glow intensity */
+    body::after {
+      content: "";
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+      top: -100px;
+      left: -100px;
+      filter: blur(40px);
+      z-index: 0;
+    }
+
+    .container {
+      width: 900px;
+      max-width: 100%;
+      min-height: 520px;
+      display: flex;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+      backdrop-filter: blur(4px);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      z-index: 1;
+      position: relative;
+    }
+
+    /* LEFT SIDE */
+    .left {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(255,255,255,0.04);
+      padding: 20px;
+    }
+
+    .logo {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    
+      max-width: 100%;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* RIGHT SIDE */
+    .right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 340px;
+      padding: 30px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      color: #111;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      outline: none;
+      transition: 0.3s;
+      font-size: 14px;
+    }
+
+    .input-group input:focus {
+      border-color: #0ea5e9;
+      box-shadow: 0 0 0 3px rgba(14,165,233,0.2);
+    }
+
+    #button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    }
+
+    .footer-text {
+      margin-top: 12px;
+      font-size: 12px;
+      text-align: center;
+      color: #333;
+    }
+
+    /* TABLET */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        min-height: auto;
+      }
+
+      .left {
+        padding: 30px;
+      }
+
+      .logo {
+        width: 180px;
+        height: 180px;
+      }
+
+      .right {
+        padding: 20px;
+      }
+    }
+
+    /* MOBILE */
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+
+      .container {
+        border-radius: 16px;
+      }
+
+      .logo {
+        width: 150px;
+        height: 150px;
+      }
+
+      .login-box {
+        padding: 20px;
+      }
+
+      .login-box h2 {
+        font-size: 18px;
+      }
+
+      .input-group input {
+        padding: 10px;
+      }
+
+      #button {
+        padding: 10px;
+      }
+    }
+  </style>
 </head>
+<body>
 
-<body class="bg-gradient-primary">
+  <div class="container">
 
-    <div class="container">
-
-        <!-- Outer Row -->
-        <div class="row justify-content-center">
-
-            <div class="col-xl-10 col-lg-12 col-md-9 p-5">
-
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                            <div class="col-lg-6">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
-                                    </div>
-                                    <form class="user" action="../pages/login.php" method="POST">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address..." name="user" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" name="password" placeholder="Password" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
-                                        </div>
-                                        <input type="submit" name="login" class="btn btn-primary btn-user btn-block" value="LOGIN">
-                                        <hr>
-                                        <a class="btn btn-google btn-user btn-block">
-                                            <!-- <i class="fa fa-google fa-fw"></i> --> Login with Google
-                                        </a>
-                                        <a class="btn btn-facebook btn-user btn-block">
-                                            <!-- <i class="fab fa-facebook-f fa-fw"></i> --> Login with Facebook
-                                        </a>
-                                    </form>
-                                    <hr>
-                                    <div class="text-center">
-                                        <a class="small">Forgot Password?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small">Create an Account!</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
+    <!-- LEFT -->
+    <div class="left">
+      <img src="https://www.vsu.edu.ph/images/VSU_Seal_2022.png" alt="VSU Logo" class="logo" />
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="../assets/jquery/jquery.min.js"></script>
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <!-- RIGHT -->
+    <div class="right">
+      <div class="login-box">
+        <h2>School Clinic Login</h2>
+        <form action="../pages/login.php" method="POST">
+          <div class="input-group">
+            <input type="text" name="user" placeholder="Username" required />
+          </div>
+          <div class="input-group">
+            <input type="password" name="password" placeholder="Password" required />
+          </div>
+          <input type="submit" name="login" value="Login" id="button" />
+        </form>
+        <div class="footer-text">© 2026 School Clinic System</div>
+      </div>
+    </div>
 
-    <!-- Core plugin JavaScript-->
-    <script src="../assets/jquery/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="../assets/js/sb-admin-2.min.js"></script>
+  </div>
 
 </body>
-
 </html>
